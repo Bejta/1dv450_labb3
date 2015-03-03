@@ -1,4 +1,25 @@
-# Angular Express Seed
+# About this repo
+This is a fork from: https://github.com/btford/angular-express-seed
+
+This is an example of how to start a node application with express to serve a angular-app. 
+
+## How to use this
+
+Clone the angular-express-seed repository, run `npm install` to grab the dependencies.
+
+## Running the app
+
+Runs like a typical express app:
+
+    node app.js
+
+## Routes and static files
+The application make sure that all requests goes through the index.html in the route directory. All static files (css, js, partial views) is located in the public folder (no need to include 'public' in the url - see index.html)
+
+Below is information from the forked repository 
+-------------------
+
+#Angular Express Seed
 
 Start an awesome app with AngularJS on the front, Express + Node on the back. This project is an
 application skeleton for a typical [AngularJS](http://angularjs.org/) web app for those who want
