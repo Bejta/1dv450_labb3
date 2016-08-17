@@ -18,7 +18,7 @@ var app = module.exports = express();
  */
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8000);
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -50,7 +50,7 @@ app.get('/', function(req, res) {
 
 // redirect all others to the index (HTML5 history) - solve deep-links
 app.get('*', function(req, res) {
-  res.sendfile(__dirname + '/index.html');
+  //res.sendfile(__dirname + '/index.html');
 });
 
 /**
