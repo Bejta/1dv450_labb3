@@ -1,0 +1,21 @@
+<table class="table is-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-ng-repeat="_pub in crud.ownList">
+        <td>{{ _pub.name }} </td>
+        <td>
+            <a data-ng-href='mypubs/{{_pub.id}}'>update</a>
+        </td>
+        <td>
+            <a ng-click="crud.remove(_pub.id)" >delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a data-ng-href='newPub' class="button is-info">Add new pub</a>

@@ -1,0 +1,10 @@
+<div class="panel-body">
+    <p> {{loginC.message }} </p>
+    <form novalidate name="loginC.form" class="simple-form">
+        Name: <br />
+        <input  ng-model="loginC.name"/><br />
+        Password: <br />
+        <input type="password" ng-model="loginC.password"/>
+        <button data-ng-click="loginC.login()">Log in</button>
+    </form>
+</div>

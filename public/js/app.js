@@ -10,7 +10,7 @@ var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap']) //
         var vm = this;
         vm.isLoggedIn = function () {
             return $rootScope.isLoggedIn;
-        }
+        };
 
         vm.logout = function () {
             $rootScope.token = null;
@@ -35,6 +35,19 @@ var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap']) //
                 controller: 'PubDetailController',
                 controllerAs: 'pub'
             }).
+            when('/',
+                {
+                    templateUrl: '../views/login.html',
+                    controller: 'loginController',
+                    controllerAs: 'loginC'
+                }).
+            when('/mypubs',
+                {
+                    templateUrl: '../views/my-pub-list.html',
+                    controller: 'CRUDController',
+                    controllerAs: 'crud',
+                    requireLogin: true
+                }).
             otherwise({
                 redirectTo: '/'
             });

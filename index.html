@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="app.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>-->
 </head>
-<body>
+<body data-ng-controller="appController as app">
 <div class="container">
     <div class="header">
         <!-- Includes a shared view (menu) -->
@@ -57,11 +57,13 @@
 <!-- Services -->
 <script src="js/services/PubService.js"></script>
 <script src="js/services/ResourceService.js"></script>
+<script src="js/services/LoginService.js"></script>
 
 <!-- Controllers -->
 <script src="js/controllers/PubListController.js"></script>
 <script src="js/controllers/PubDetailController.js"></script>
 <script src="js/controllers/MapController.js"></script>
+<script src="js/controllers/loginController.js"></script>
 
 </body>
 </html>
