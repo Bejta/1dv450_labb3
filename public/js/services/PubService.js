@@ -7,9 +7,9 @@ angular
     .module("myApp")
     .factory('PubService', PubService);
 
-PubService.$inject = ['ResourceService', '$q', '$rootScope'];
+PubService.$inject = ['$http','ResourceService', '$q', '$rootScope', 'API'];
 
-function PubService(Resource, $q, $rootScope)
+function PubService($http ,Resource, $q, $rootScope, API)
 {
 
     var Pub = Resource('pubs');
@@ -28,34 +28,46 @@ function PubService(Resource, $q, $rootScope)
             return deferred.promise;
         },
 
-        /*
-         //Skapar en plats
-         createPlace:function(address, tagArray)
-         {
+        deletePub: function(id){
+            console.log("testtest");
+            var req = {
+                method: "DELETE",
+                url : 'https://rubyonrails-api-jb223cp.c9users.io/api/v1/pubs/'+id,
+                headers : { 'Authorization': $rootScope.jwt},
+                params: { 'akey': API.key }
+            }
+            return $http(req);
+        },
 
+         //creates Pub
+         createPub:function(t)
+         {
+         console.log("t");
          var deferred = $q.defer();
          var promise;
-         var obj = {'instanceName' : 'places'};
-         var attr = { "place":
+
+         /*var attr = { "pub":
          {
-         "address": address,
-         "tag_ids": tagArray
+         "name": name,
+         "description": description,
+         "rating": rating,
+         "position": {
+             "address" : address
+              },
+         "tags" : tagArray
          }
-         }
+         };*/
+             var req = {
+                 method: "POST",
+                 url :"https://rubyonrails-api-jb223cp.c9users.io/api/v1/pubs",
+                 headers : { 'Authorization': $rootScope.token, 'Accept': "application/json"},
+                 params: { 'akey': API.key },
+                 data: t
+             };
 
-         promise = Place.create(obj, attr);
+             return $http(req);
+         },
 
-         promise.success(function(data)
-         {
-         deferred.resolve(data);
-         }).catch(function(){
-         deferred.reject("Something went wrong, try again");
-         });
-
-         return deferred.promise;
-         }, */
-
-        //hämtar en vald plats
         getPub:function(id)
         {
 
@@ -104,7 +116,7 @@ function PubService(Resource, $q, $rootScope)
          }, */
 
          //delete Pub
-         deletePub:function(id){
+         deletePubAlt:function(id){
 
              var deferred = $q.defer();
              var promise;

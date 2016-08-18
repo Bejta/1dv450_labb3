@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Update Pub</h3>
+    </div>
+    <p> {{ edit.message }} </p>
+    <div class="panel-body">
+        <form data-ng-if="edit.isLoggedIn" name="edit.form" class="simple-form" novalidate>
+            Name: <br />
+            <input type="text" data-ng-model="edit.name" name="name" text="{{edit.name }}" /><br />
+            Description: <br />
+            <input type="text" data-ng-model="edit.description" name="description" /><br />
+            Rating: <br />
+            <input type="text" data-ng-model="edit.rating" name="rating" /><br />
+            Address: <br />
+            <input type="text" data-ng-model="edit.address" name="address" /><br />
+            <button type="submit" data-ng-click="edit.updatePub()">Update pub</button>
+        </form>
+    </div>
+</div>

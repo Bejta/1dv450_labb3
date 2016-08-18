@@ -19,8 +19,8 @@ var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap']) //
             $location.path('/');
         }
     }])
-    .config(['$routeProvider', '$locationProvider',
-        function($routeProvider, $locationProvider) {
+    .config(['$routeProvider', '$locationProvider', '$httpProvider',
+        function($routeProvider, $locationProvider, $httpProvider) {
             $routeProvider.
             when('/', {
                 templateUrl: 'views/index.html'
@@ -39,7 +39,7 @@ var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap']) //
                 {
                     templateUrl: '../views/new-pub.html',
                     controller: 'PubCreateController',
-                    controllerAs: 'create'
+                    controllerAs: 'createP'
                 }).
             when('/tags',
                 {
@@ -63,6 +63,12 @@ var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap']) //
                     controller: 'loginController',
                     controllerAs: 'loginC'
                 }).
+            when('/mypubs/:id',
+                {
+                    templateUrl: '../views/edit-pub.html',
+                    controller: 'PubEditController',
+                    controllerAs: 'edit'
+                }).
             when('/mypubs',
                 {
                     templateUrl: '../views/my-pub-list.html',
@@ -77,6 +83,8 @@ var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap']) //
                 enabled: true,
                 requireBase: false
             });
+            $httpProvider.defaults.useXDomain = true;
+            delete $httpProvider.defaults.headers.common['X-Requested-With'];
         }])
     .config(function (localStorageServiceProvider) {
         // The module give me some stuff to configure

@@ -7,33 +7,31 @@
                 <form name="form" class="css-form" novalidate>
 
                     <p class="control ">
-                        <input class="input" type="text" placeholder="name" ng-model="newpubs.pub.name" name="name"  >
+                        <input class="input" type="text" placeholder="name" ng-model="createP.name" name="name"  >
                     </p>
 
                     <p class="control ">
-                        <input class="input is-primary" type="text" placeholder="description"  ng-model="newpubs.pubs.description" name="description">
+                        <input class="input is-primary" type="text" placeholder="description"  ng-model="createP.description" name="description">
                     </p>
 
                     <p class="control ">
-                        <input class="input is-primary" type="text" placeholder="rating"  ng-model="newpubs.pubs.rating" name="description">
+                        <input class="input is-primary" type="text" placeholder="rating"  ng-model="createP.rating" name="description">
                     </p>
                     <p class="control ">
-                        <input class="input is-primary" type="text" placeholder="address"  ng-model="newpubs.pub.address" name="address">
+                        <input class="input is-primary" type="text" placeholder="address"  ng-model="createP.address" name="address">
                     </p>
 
-                    <div data-ng-repeat="tag in newpubs.tags">
+                    <div data-ng-repeat="tag in createP.tagList">
                         <p class="control">
                             <label class="checkbox">
-                                <input type="checkbox" id="tag-{{$index}}" ng-model="tag.val">
+                                <input type="checkbox" id="tag-{{$index}}" ng-model="tag.selected">
                                 {{tag.name}}
                             </label>
                         </p>
                     </div>
 
                     <p class="control">
-                        <button class="button is-success" ng-click="newpubs.save(user)">
-                            submit
-                        </button>
+                        <button class="button is-success" data-ng-click="createP.save()">Add pub</button>
                     </p>
 
                 </form>

@@ -18,21 +18,34 @@ function PubCreateController($routeParams, $rootScope, pubService, tagService, f
     {
 
         //add new pub
-        vm.createPub = function()
+        vm.save = function()
         {
 
             //Adds only selected tags
-            var log = vm.selectedTags();// checkbox
+            var log = vm.selectedTags();
             var tagArray = [];
-
-            //tags in array
             angular.forEach(log, function(value, key)
             {
-                this.push(value.id);
+                this.push({name : value.name});
             }, tagArray);
+            var tagArray = [];
 
+                var t = {
+                    pub: {
+                        name: vm.name,
+                        description: vm.description,
+                        rating: vm.rating,
+                        position:
+                            { address: vm.address }
+                        ,
+                        tags: log
+                    }
+                };
+            var a = JSON.stringify(t);
+            console.log(a);
             //adds one pub with parameters from view
-            var createPromise = pubService.createPub(vm.name, vm.description,vm.rating,vm.address, tagArray);
+            //var createPromise = pubService.createPub(vm.name, vm.description,vm.rating,vm.address, tagArray);
+            var createPromise = pubService.createPub(a);
             createPromise.then(function(data)
             {
                 vm.message = "The pub has been added";
@@ -45,10 +58,10 @@ function PubCreateController($routeParams, $rootScope, pubService, tagService, f
         //get all tags
         var tagPromise = tagService.get();
 
-        tagPromise.then(function(data)
-        {
-            vm.tagList = data;
-        })
+            tagPromise.then(function(data)
+            {
+                vm.tagList = data;
+            })
             .catch(function(error)
             {
                 vm.message = error;

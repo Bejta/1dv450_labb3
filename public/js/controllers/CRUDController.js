@@ -56,11 +56,12 @@ function CRUDController($http, $rootScope, $routeParams, crudPubService, pubServ
     {
         vm.deletePub = function(id)
         {
-            var deletePromise = pubService.deletePub(id);
+            console.log(id);
+            var deletePromise = crudPubService.deletePub(id);
             deletePromise.then(function(data)
             {
                 vm.message = "The pub has been deleted!!!";
-                var myPromise = userService.getUser($rootScope.creator_id);
+                /*var myPromise = userService.getUser($rootScope.creator_id);
                 myPromise.then(function(data)
                 {
                     vm.name = data.name;
@@ -68,7 +69,7 @@ function CRUDController($http, $rootScope, $routeParams, crudPubService, pubServ
                 }).catch(function(error)
                 {
                     vm.message = error;
-                })
+                })*/
             }).catch(function(error)
             {
                 vm.message = error;
