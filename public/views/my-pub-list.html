@@ -7,7 +7,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr data-ng-repeat="_pub in crud.ownList">
+
+    <tr data-ng-repeat="_pub in crud.myPubsList">
         <td>{{ _pub.name }} </td>
         <td>
             <a data-ng-href='mypubs/{{_pub.id}}'>update</a>

@@ -10,11 +10,11 @@ angular
 
 function CRUDPubService($q, $http, $rootScope) {
 
-    console.log($rootScope.creator_id);
     return {
 
         getOwnPubs: function(id){
-            return $http.get('https://rubyonrails-api-jb223cp.c9users.io/api/v1/tags?creator_id='+id+'&akey=newtoken');
+            //console.log(a);
+            return $http.get('https://rubyonrails-api-jb223cp.c9users.io/api/v1/pubs?creator_id='+$rootScope.id+'&akey=newtoken');
     }
 
   };

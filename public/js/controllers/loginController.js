@@ -20,6 +20,7 @@ function loginController($http, $rootScope, $location, loginService)
         loginPromise.then(function(data)
         {
             $rootScope.isLoggedIn = true;
+            $rootScope.name=vm.name;
             $location.path('/mypubs');
         }).catch(function(data)
         {

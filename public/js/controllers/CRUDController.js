@@ -19,7 +19,14 @@ function CRUDController($http, $rootScope, $routeParams, crudPubService, pubServ
 
     if($rootScope.isLoggedIn)
     {
-        var myPromise = crudPubService.getOwnPubs($rootScope.creator_id);
+
+
+        crudPubService.getOwnPubs($rootScope.id).then(function(data) {
+            //console.log(data);
+            vm.myPubsList = data.data;
+            console.log(data.data);
+        });
+        /*var myPromise = crudPubService.getOwnPubs($rootScope.id);
 
         myPromise.then(function(data)
         {
@@ -28,9 +35,9 @@ function CRUDController($http, $rootScope, $routeParams, crudPubService, pubServ
         }).catch(function(error)
         {
             vm.message = error;
-        });
+        });*/
 
-        /*crudPubService.getOwnPubs($rootScope.user_id).then(result => {
+        /*crudPubService.getOwnPubs($rootScope.id).then(result => {
             return $http.get('http://localhost:3000/api/toilets?appkey=supernyckelen&creator_id='+result.data.id);
         }),
         .then(value => {
@@ -39,7 +46,7 @@ function CRUDController($http, $rootScope, $routeParams, crudPubService, pubServ
         })
         .catch(e => {
             console.log(e);
-        } */
+        }*/
     }
     else
     {

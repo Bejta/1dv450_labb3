@@ -35,6 +35,22 @@ var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap']) //
                 controller: 'PubDetailController',
                 controllerAs: 'pub'
             }).
+            when('/newPub',
+                {
+                    templateUrl: '../views/new-pub.html',
+                    controller: 'PubCreateController',
+                    controllerAs: 'create'
+                }).
+            when('/tags',
+                {
+                    templateUrl: '../views/tags-list.html',
+                }).
+            when('/tags/:id',
+                {
+                    templateUrl: '../views/tag-detail.html',
+                    controller: 'TagController',
+                    controllerAs: 'tag'
+                }).
             when('/',
                 {
                     templateUrl: '../views/login.html',

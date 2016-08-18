@@ -1,0 +1,41 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Add New Pub</h3>
+    </div>
+    <p> {{ create.message}} </p>
+            <div class="myform">
+                <form name="form" class="css-form" novalidate>
+
+                    <p class="control ">
+                        <input class="input" type="text" placeholder="name" ng-model="newpubs.pub.name" name="name"  >
+                    </p>
+
+                    <p class="control ">
+                        <input class="input is-primary" type="text" placeholder="description"  ng-model="newpubs.pubs.description" name="description">
+                    </p>
+
+                    <p class="control ">
+                        <input class="input is-primary" type="text" placeholder="rating"  ng-model="newpubs.pubs.rating" name="description">
+                    </p>
+                    <p class="control ">
+                        <input class="input is-primary" type="text" placeholder="address"  ng-model="newpubs.pub.address" name="address">
+                    </p>
+
+                    <div data-ng-repeat="tag in newpubs.tags">
+                        <p class="control">
+                            <label class="checkbox">
+                                <input type="checkbox" id="tag-{{$index}}" ng-model="tag.val">
+                                {{tag.name}}
+                            </label>
+                        </p>
+                    </div>
+
+                    <p class="control">
+                        <button class="button is-success" ng-click="newpubs.save(user)">
+                            submit
+                        </button>
+                    </p>
+
+                </form>
+             </div>
+</div>

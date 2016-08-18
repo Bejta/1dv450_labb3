@@ -37,6 +37,31 @@ function UserService(Resource, $q, $rootScope)
             return deferred.promise;
         },
 
+        getCreatorByName:function(name)
+        {
+
+            var url;
+            url = API.url +"creators"+"/";
+
+            var req = {
+                method: 'GET',
+                url: url,
+                headers: {
+                    'Accept': API.format
+                },
+                params: {
+                    'name' : name,
+                    'akey': API.key
+                }
+            };
+
+            return $http(req).success(function(response)
+            {
+                return response;
+            });
+
+        },
+
         //All creators....Don't know if I need this tho.
         get:function()
         {
