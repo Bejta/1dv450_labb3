@@ -10,11 +10,11 @@
 
     <tr data-ng-repeat="_pub in crud.myPubsList">
         <td>{{ _pub.name }} </td>
-        <td>
+        <td data-ng-if="crud.isLoggedIn">
             <a data-ng-href='mypubs/{{_pub.id}}'>update</a>
         </td>
-        <td>
-            <a ng-click="crud.remove(_pub.id)" >delete</a>
+        <td data-ng-if="crud.isLoggedIn">
+            <button type="button" ng-click="crud.deletePub(_pub.id)">Delete pub</button>
         </td>
     </tr>
     </tbody>

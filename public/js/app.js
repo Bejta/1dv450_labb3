@@ -51,6 +51,12 @@ var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap']) //
                     controller: 'TagController',
                     controllerAs: 'tag'
                 }).
+            when('/search',
+                {
+                    templateUrl: '../views/search.html',
+                    controller: 'SearchController',
+                    controllerAs: 'searchcontroller'
+                }).
             when('/',
                 {
                     templateUrl: '../views/login.html',

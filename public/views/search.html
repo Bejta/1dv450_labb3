@@ -1,0 +1,28 @@
+<div class="col-md-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h5 class="panel-title">Search pubs by name or description </h5>
+        </div>
+        <div class="panel-body">
+            <form novalidate name="searchcontroller.form" class="simple-form">
+                Enter your criteria: <br />
+                <input type="text" ng-model="searchcontroller.criteria"/><br />
+                <button data-ng-click="searchcontroller.search()">Search</button>
+            </form>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Pubs</th>
+        </tr>
+        <tr>
+            <td>{{searchcontroller.message}}</td>
+        </tr>
+        <tr data-ng-repeat="a in searchcontroller.pubList">
+            <td>{{ a.name }}</td>
+            <td><a data-ng-href="pubs/{{a.id}}">More info</a></td>
+        </tr>
+        </thead>
+    </table>
+</div>

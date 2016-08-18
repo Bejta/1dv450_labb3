@@ -74,7 +74,7 @@ function PubService(Resource, $q, $rootScope)
             });
 
             return deferred.promise;
-        }
+        },
 
         /*
          //Uppdaterar en vald plats
@@ -101,26 +101,26 @@ function PubService(Resource, $q, $rootScope)
          });
 
          return deferred.promise;
-         },
+         }, */
 
-         //tar bort en plats
-         deletePlace:function(id){
+         //delete Pub
+         deletePub:function(id){
 
-         var deferred = $q.defer();
-         var promise;
-         var obj = {'instanceName' : 'places', 'id' : id};
+             var deferred = $q.defer();
+             var promise;
+             var obj = {'instanceName' : 'pubs', 'id' : id};
 
-         promise = Place.delete(obj);
+             promise = Pub.delete(obj);
 
-         promise.success(function(data)
-         {
-         deferred.resolve(data);
-         }).catch(function(){
-         deferred.reject("Something went wrong, try again");
+             promise.success(function(data)
+             {
+             deferred.resolve(data);
+             }).catch(function(){
+             deferred.reject("Error occurred, please try again");
          });
 
          return deferred.promise;
-         }*/
+         }
 
     };
 }
