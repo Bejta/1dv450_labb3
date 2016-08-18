@@ -72,75 +72,81 @@ function ResourceService($http, $rootScope, API)
             });
         };
 
-        /*
+
          //post funktnion som addar datat till api
+
          Resource.create = function(obj, attr)
          {
-         var url;
-         url = API.url +obj.instanceName;
+             var url;
+             url = API.url +obj.instanceName;
 
-         var req = {
-         method: 'POST',
-         url: url,
-         headers: {
-         'Accept': API.format,
-         'ApiKey': API.key,
-         'Authorization' : 'Bearer ' + $rootScope.token
-         },
-         data : attr
+             var req = {
+                 method: 'POST',
+                 url: url,
+                 headers: {
+                 'Accept': API.format,
+                 'akey': API.key,
+                     'Authorization': $sessionStorage.jwt,
+             },
+             data : attr
+             };
+
+             return $http(req).success(function(response)
+             {
+             return response;
+             });
          };
 
-         return $http(req).success(function(response)
-         {
-         return response;
-         });
-         };
-
-         //delit funktnion som tar bort valda data
+         //Delete function, deletes data from API
          Resource.delete = function(obj)
          {
-         var url;
-         url = API.url +obj.instanceName +"/" + obj.id;
+             var url;
+             url = API.url +obj.instanceName +"/" + obj.id;
 
-         var req = {
-         method: 'DELETE',
-         url: url,
-         headers: {
-         'Accept': API.format,
-         'ApiKey': API.key,
-         'Authorization': 'Bearer ' + $rootScope.token
-         }
+             var req = {
+                 method: 'DELETE',
+                 url: url,
+                 headers: {
+                 'Accept': API.format,
+                     'Authorization': $sessionStorage.jwt,
+             }
          };
 
-         return $http(req).success(function(response)
-         {
-         return response;
-         });
+             return $http(req).success(function(response)
+             {
+             return response;
+             });
          };
 
 
-         //put funktnion som updaterar vis data på apien
+         //Put function updates data to API
          Resource.update = function(obj, attr)
          {
-         var url;
-         url = API.url +obj.instanceName +"/" + obj.id;
+             var url;
+             url = API.url +obj.instanceName +"/" + obj.id;
 
-         var req = {
-         method: 'PUT',
-         url: url,
-         headers: {
-         'Accept': API.format,
-         'ApiKey': API.key,
-         'Authorization': 'Bearer ' + $rootScope.token
-         },
-         data: attr
+             /*var req = {
+                 method: "PUT",
+                 url :"http://localhost:3000/api/toilets/"+id+"?appkey=supernyckelen",
+                 headers: {"Authorization": $sessionStorage.jwt},
+                 data: data
+             }; */
+             var req = {
+                 method: 'PUT',
+                 url: url,
+                 headers: {
+                 'Accept': API.format,
+                 'akey': API.key,
+                 'Authorization': $sessionStorage.jwt,
+             },
+             data: attr
+             };
+
+             return $http(req).success(function(response)
+             {
+                 return response;
+             });
          };
-
-         return $http(req).success(function(response)
-         {
-         return response;
-         });
-         }; */
 
         return Resource;
     }

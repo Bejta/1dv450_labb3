@@ -29,7 +29,8 @@ function LoginService ($http, $q, $rootScope)
             .success(function(data)
             {
                 $rootScope.token = data.jwt;
-                $rootScope.user_id = data.user_id;
+                $rootScope.creator_id = data.user_id;
+                $rootScope.creator_name = data.name;
             });
     }
 
