@@ -1,102 +1,23 @@
-# About this repo
-This is a fork from: https://github.com/btford/angular-express-seed
+# Informations
 
-This is an example of how to start a node application with express to serve a angular-app. 
+In order to use this application you have to setup and run API from part two.
+Clone this repo in your cloud9 environment:
+https://github.com/jb223cp/1DV450_jb223cp_API
 
-## How to use this
+Follow the steps from README file in that repo.
 
-Clone the angular-express-seed repository, run `npm install` to grab the dependencies.
+Run API before You use this application (don't forget cd Registration):
+`$ rails server -p $PORT -b $IP`
 
-## Running the app
+- Clone this repo and use it as a usual express application.
+- You need Nodejs installed on your system.
+- Navigate to `angular-express-seed ` folder.
+- Run `npm install ` to fetch the dependencies
+- Run `node app.js` to mount express server
+- Open browser and run application on localhost:8000
 
-Runs like a typical express app:
+Credentials for sign in:
+- Username: selma
+- Password: selma2
 
-    node app.js
-
-## Routes and static files
-The application make sure that all requests goes through the index.html in the route directory. All static files (css, js, partial views) is located in the public folder (no need to include 'public' in the url - see index.html)
-
-Below is information from the forked repository 
--------------------
-
-#Angular Express Seed
-
-Start an awesome app with AngularJS on the front, Express + Node on the back. This project is an
-application skeleton for a typical [AngularJS](http://angularjs.org/) web app for those who want
-to use Node to serve their app.
-
-The seed contains angular libraries, test libraries and a bunch of scripts all preconfigured for
-instant web development gratification. Just clone the repo (or download the zip/tarball) and
-you're ready to develop your application.
-
-The seed app shows how to wire together Angular client-side components with Express on the server.
-It also illustrates writing angular partials/views with the Jade templating library.
-
-_Note: Although Jade supports interpolation, you should be doing that mostly on the client. Mixing
-server and browser templating will convolute your app. Instead, use Jade as a syntactic sugar for
-HTML, and let AngularJS take care of interpolation on the browser side._
-
-## How to use angular-express-seed
-
-Clone the angular-express-seed repository, run `npm install` to grab the dependencies, and start hacking!
-
-### Running the app
-
-Runs like a typical express app:
-
-    node app.js
-
-### Running tests
-
-Coming soon!
-
-### Receiving updates from upstream
-
-Just fetch the changes and merge them into your project with git.
-
-
-## Directory Layout
-    
-    app.js              --> app config
-    package.json        --> for npm
-    public/             --> all of the files to be used in on the client side
-      css/              --> css files
-        app.css         --> default stylesheet
-      img/              --> image files
-      js/               --> javascript files
-        app.js          --> declare top-level app module
-        controllers.js  --> application controllers
-        directives.js   --> custom angular directives
-        filters.js      --> custom angular filters
-        services.js     --> custom angular services
-        lib/            --> angular and 3rd party JavaScript libraries
-          angular/
-            angular.js            --> the latest angular js
-            angular.min.js        --> the latest minified angular js
-            angular-*.js          --> angular add-on modules
-            version.txt           --> version number
-    routes/
-      api.js            --> route for serving JSON
-      index.js          --> route for serving HTML pages and partials
-    views/
-      index.jade        --> main page for app
-      layout.jade       --> doctype, title, head boilerplate
-      partials/         --> angular view partials (partial jade templates)
-        partial1.jade
-        partial2.jade
-
-
-
-## Example App
-
-A simple [blog](https://github.com/btford/angular-express-blog) based on this seed.
-
-
-## Contact
-
-For more information on AngularJS please check out http://angularjs.org/
-For more on Express and Jade, http://expressjs.com/ and http://jade-lang.com/ are
-your friends.
-
-## License
-MIT
+Even if you have some data available, you can try to POST some extra pubs if you follow the link to POSTMAN file from API repo.
