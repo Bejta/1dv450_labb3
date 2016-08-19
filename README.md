@@ -23,6 +23,8 @@ Credentials for sign in:
 
 Even if you have some data available, you can try to POST some extra pubs if you follow the link to POSTMAN file from API repo.
 
+<img width="990" alt="screen shot 2016-08-19 at 03 22 27" src="https://cloud.githubusercontent.com/assets/8629282/17795890/7660f43e-65bc-11e6-964e-9ab6211b8dec.png">
+
 ## Notice
 
 This repo is not a start from scratch. I copied some scripts and files from my application and commit history can be seen here:
