@@ -20,25 +20,36 @@ function PubEditController($routeParams, $rootScope, pubService, tagService, fil
         vm.updatePub = function()
         {
 
-                var upd = vm.selectedTags();
-                var tagArray = [];
+            //Adds only selected tags
+            /*var log = vm.selectedTags();
+            var tagArray = [];
+            angular.forEach(log, function(value, key)
+            {
+                this.push({name : value.name});
+            }, tagArray);
+            var tagArray = [];*/
 
-                angular.forEach(upd, function(value, key)
-                {
-                    this.push(value.id);
-                }, tagArray);
-
-                var updatePromise = pubService.updatePub($routeParams.id, vm.name,vm.description,vm.rating,vm.address, tagArray);
-                updatePromise.then(function(data)
-                {
-                    vm.message = "The pub has been edited";
-                }).catch(function(error){
-                    vm.message = error;
-                })
-
+            var t = {
+                pub: {
+                    name: vm.name,
+                    description: vm.description,
+                    rating: vm.rating,
+                    position:
+                    { address: vm.address }
+                }
+            };
+            var a = JSON.stringify(t);
+            console.log($routeParams.id);
+            var updatePromise = pubService.updatePub($routeParams.id, a);
+            updatePromise.then(function(data)
+            {
+                vm.message = "The pub has been edited";
+            }).catch(function(error){
+                vm.message = error;
+            })
         };
 
-        var tagPromise = tagService.get();
+        /*var tagPromise = tagService.get();
 
         tagPromise
             .then(function(data)
@@ -50,14 +61,11 @@ function PubEditController($routeParams, $rootScope, pubService, tagService, fil
                 vm.message = error;
             });
 
-
-
-        //tagar i checkbox
         vm.selection = [];
         vm.selectedTags = function selectedTags()
         {
             return filterFilter(vm.tagList, { selected: true });
-        };
+        };*/
 
     }
     else

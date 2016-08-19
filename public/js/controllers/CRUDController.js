@@ -15,38 +15,13 @@ function CRUDController($http, $rootScope, $routeParams, crudPubService, pubServ
     var vm = this;
     vm.isLoggedIn = $rootScope.isLoggedIn;
 
-
-
     if($rootScope.isLoggedIn)
     {
 
-
         crudPubService.getOwnPubs($rootScope.id).then(function(data) {
-            //console.log(data);
+
             vm.myPubsList = data.data;
-            console.log(data.data);
         });
-        /*var myPromise = crudPubService.getOwnPubs($rootScope.id);
-
-        myPromise.then(function(data)
-        {
-            vm.name = data.name;
-            vm.pubs = data.pubs;
-        }).catch(function(error)
-        {
-            vm.message = error;
-        });*/
-
-        /*crudPubService.getOwnPubs($rootScope.id).then(result => {
-            return $http.get('http://localhost:3000/api/toilets?appkey=supernyckelen&creator_id='+result.data.id);
-        }),
-        .then(value => {
-            console.log(value.data.pubs);
-            this.ownList = value.data.pubs;
-        })
-        .catch(e => {
-            console.log(e);
-        }*/
     }
     else
     {
@@ -61,15 +36,7 @@ function CRUDController($http, $rootScope, $routeParams, crudPubService, pubServ
             deletePromise.then(function(data)
             {
                 vm.message = "The pub has been deleted!!!";
-                /*var myPromise = userService.getUser($rootScope.creator_id);
-                myPromise.then(function(data)
-                {
-                    vm.name = data.name;
-                    vm.pubs = data.pubs;
-                }).catch(function(error)
-                {
-                    vm.message = error;
-                })*/
+
             }).catch(function(error)
             {
                 vm.message = error;
@@ -82,4 +49,3 @@ function CRUDController($http, $rootScope, $routeParams, crudPubService, pubServ
     }
 
 }
-

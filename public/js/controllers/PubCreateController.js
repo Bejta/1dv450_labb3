@@ -42,9 +42,7 @@ function PubCreateController($routeParams, $rootScope, pubService, tagService, f
                     }
                 };
             var a = JSON.stringify(t);
-            console.log(a);
             //adds one pub with parameters from view
-            //var createPromise = pubService.createPub(vm.name, vm.description,vm.rating,vm.address, tagArray);
             var createPromise = pubService.createPub(a);
             createPromise.then(function(data)
             {
