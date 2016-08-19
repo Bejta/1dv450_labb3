@@ -21,3 +21,8 @@ Credentials for sign in:
 - Password: selma2
 
 Even if you have some data available, you can try to POST some extra pubs if you follow the link to POSTMAN file from API repo.
+
+## Notice
+
+This repo is not a start from scratch. I copied some scripts and files from my application and commit history can be seen here:
+https://github.com/jb223cp/1dv450_jb223cp_angular
