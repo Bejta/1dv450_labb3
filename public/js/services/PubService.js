@@ -28,8 +28,24 @@ function PubService($http ,Resource, $q, $rootScope, API)
             return deferred.promise;
         },
 
+        getPubByTag: function(id){
+
+            var deferred = $q.defer();
+            var promise;
+
+            var req = {
+                method: "GET",
+                url :"https://rubyonrails-api-jb223cp.c9users.io/api/v1/pubs",
+                headers : { 'Authorization': $rootScope.token, 'Accept': "application/json"},
+                params: { 'akey': API.key , 'tag_id': id}
+            };
+
+            return $http(req);
+
+        },
+
         deletePub: function(id){
-            console.log("testtest");
+
             var req = {
                 method: "DELETE",
                 url : 'https://rubyonrails-api-jb223cp.c9users.io/api/v1/pubs/'+id,

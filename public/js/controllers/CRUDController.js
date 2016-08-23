@@ -15,6 +15,8 @@ function CRUDController($http, $rootScope, $routeParams, crudPubService, pubServ
     var vm = this;
     vm.isLoggedIn = $rootScope.isLoggedIn;
 
+
+
     if($rootScope.isLoggedIn)
     {
 

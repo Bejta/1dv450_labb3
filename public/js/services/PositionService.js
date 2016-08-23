@@ -4,7 +4,7 @@
 
 angular
     .module("myApp")
-    .factory('PositionService', PositionService);
+    .factory('UserService', UserService);
 
 UserService.$inject = ['$http','ResourceService', 'API'];
 

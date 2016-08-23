@@ -36,22 +36,16 @@ function LoginService ($http, $q, $rootScope, API)
                 'akey': API.key
             }
         }
-        /*return $http(request2)
-            .success(function()
-            {
-                $rootScope.id = 2;
-                console.log($rootScope.id);
-            })
-            //console.log(response);*/
+
 
         return $http(request)
             .success(function(data)
             {
                 $rootScope.token = data.jwt;
                 $rootScope.id = 2;
-                console.log($rootScope.token);
+
                 $rootScope.name = name;
-                console.log($rootScope.name);
+
                 $rootScope.creator_name = data.name;
             });
     }

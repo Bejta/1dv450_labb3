@@ -13,7 +13,6 @@ function CRUDPubService($q, $http, $rootScope, API) {
     return {
 
         getOwnPubs: function(id){
-                //console.log(a);
                 return $http.get('https://rubyonrails-api-jb223cp.c9users.io/api/v1/pubs?creator_id='+$rootScope.id+'&akey=newtoken');
           },
         deletePub: function(id){

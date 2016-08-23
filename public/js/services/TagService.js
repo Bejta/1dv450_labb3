@@ -38,12 +38,10 @@ function TagService(Resource, $q, $rootScope)
         //get all tags
         get:function()
         {
-
             var deferred = $q.defer();
 
             Tag.getCollection().then(function(data)
             {
-
                 deferred.resolve(data);
             });
 

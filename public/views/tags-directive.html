@@ -1,0 +1,16 @@
+<div class="container">
+    <h1> {{ tag.name }} </h1>
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>Pubs</th>
+            </tr>
+            <tr data-ng-repeat="p in tag.PubsByTag">
+                <td>{{ p.name}}</td>
+                <td>{{ p.description}}</td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>

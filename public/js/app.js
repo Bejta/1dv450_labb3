@@ -4,7 +4,7 @@
 
 'use strict';
 
-var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap']) // you must inject the ngRoute (included as a separate js-file)
+var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap', 'myDirective']) // you must inject the ngRoute (included as a separate js-file)
 
     .controller('appController', ['$rootScope', '$location', function ($rootScope, $location) {
         var vm = this;
@@ -47,8 +47,8 @@ var myApp = angular.module('myApp', ['ngRoute','LocalStorageModule','ngMap']) //
                 }).
             when('/tags/:id',
                 {
-                    templateUrl: '../views/tag-detail.html',
-                    controller: 'TagController',
+                    templateUrl: '../views/tags-directive.html',
+                    controller: 'PubListController',
                     controllerAs: 'tag'
                 }).
             when('/search',
